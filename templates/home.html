@@ -1,0 +1,48 @@
+{%load static%}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>creating a responsive homepage</title>
+        <link href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel = "stylesheet">
+
+        <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    </head>
+    <body>
+        <header>
+            <div class = "wrapper">
+             <div class="logo">
+                 <h1>The scheduler</h1>
+             </div>
+            <ul class = "nav-area">
+              <li><a href="#">Home</a></li>
+              <li><a href="/home/about">About</a></li>
+              <li><a href="">Contact</a></li>
+              {% if user.is_authenticated%}
+                <li style="color:white">Hii {{user.username}} !!</li>
+                <li><a href="/home/logout">LogOut</a></li>
+            {% else %}
+                <li><a href="/home/signin">Login</a></li>
+                <li><a href="/home/signup">Register</a></li>                       
+            {%endif%}
+            </ul>
+            </div>
+         <div class = "welcome-text">
+              <h1>Schedule your class from <span>anywhere</span></h1>
+             
+              {%if user.is_authenticated %}
+               <p>Book your slots by clicking here</p>
+               <br>
+               <button onclick="window.location.href='/startbooking'">Book Now</button>
+            {% else %}
+            <p><h2 style="color: white;">Login to continue.....</h2></p>
+            <br>           
+             {%endif%}
+         </div>
+        </header>
+                 
+
+
+    </body>
+</html>

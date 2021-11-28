@@ -1,0 +1,51 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login and Registration Page</title>
+    <link rel="stylesheet" href="{%static 'css/accounts.css'%}">
+    <!---we had linked our css file----->
+  
+    
+</head>
+<body>
+    <div class="full-page">
+      
+        <div class="form-box">
+          <div style="color:rgba(230, 25, 25, 0.692); text-align:center" >
+            {%for msg in messages %}
+            <h3>{{msg}}</h3>
+            {% endfor %}
+        </div>
+            <h1 style="text-align:center; color:rgb(47, 47, 212)">LOGIN</h1>
+            <form id='login' class='input-group-login' method='post' action='login'>
+                {%csrf_token%}
+                <input type="text" class="input-field" placeholder="User Name" name="username" required ><br><br>
+                <input type='password' class='input-field' placeholder='Enter Password' name="password" required><br><br>
+                <input type='checkbox' class='check-box'> <span>Remember Password</span>
+                <button type='submit' class='submit-btn'>Log in</button>
+            </form>
+          
+        </div>
+      
+    </div>
+    
+    <script>
+    var check = function() {
+        if (document.getElementById('password').value ==
+          document.getElementById('confirm_password').value) {
+          document.getElementById('message').style.color = 'green';
+          document.getElementById('message').innerHTML = 'matching';
+        } else {
+          document.getElementById('message').style.color = 'red';
+          document.getElementById('message').innerHTML = 'not matching';
+        }
+      }
+      </script>
+</body>
+</html>
+
+
+
+

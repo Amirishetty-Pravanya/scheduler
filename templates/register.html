@@ -1,0 +1,50 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login and Registration Page</title>
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+    <!---we had linked our css file----->
+</head>
+<body>
+    <div class="full-page">
+        <div class="form-box">
+          <div style="color:red; text-align:center">
+            {%for msg in messages %}
+            <h3>{{msg}}</h3>
+            {% endfor %}
+        </div>
+            <h1 style='text-align:center ; color:rgb(47, 47, 212)'>Register</h1>
+            <form id='login' class='input-group-login' action="register" method="post">
+                {%csrf_token%}
+                <input type='text' class='input-field' placeholder='First Name' name="first_name" required>
+                <input type='text' class='input-field' placeholder='Last Name '  name="last_name" required>
+                <input type='text' class='input-field' placeholder='User Name' name="username" required>
+                <input type='email' class='input-field' placeholder='Email Id'  name="email" required>
+                <input type='mobile' class='input-field' placeholder='Mobile No' name="contact" required>
+                <p>Dose1 Certificate:</p>
+                <input type='file' class='input-field' placeholder='dose1' name="dose1" >
+                <p>Dose2 Certificate</p>
+                <input type='file' class='input-field' placeholder='dose2' name="dose2" >
+                <input type='password' id="password" class='input-field' placeholder='Enter Password' name="password1" onkeyup='check();' required>
+                <input type='password' id="confirm_password"  class='input-field' placeholder='Confirm Password' name="password2" onkeyup='check();' required>
+                <span id='message'></span><br>
+                <button type='submit' class='submit-btn' >Register</button>
+          </form>
+        </div>
+    
+    <script>
+        var check = function() {
+            if (document.getElementById('password').value ==
+              document.getElementById('confirm_password').value) {
+              document.getElementById('message').style.color = 'green';
+              document.getElementById('message').innerHTML = 'matching';
+            } else {
+              document.getElementById('message').style.color = 'red';
+              document.getElementById('message').innerHTML = 'not matching';
+            }
+          }
+    </script>
+</body>
+</html>

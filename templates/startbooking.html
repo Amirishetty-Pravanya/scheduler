@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Scores</title>
+    <link href="{% static 'css/startbooking.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body style="background-color:#9193a1" class="x">
+    <div class="navbar">
+        <nav>
+            <ul id='MenuItems'>
+                <li>{{user.username}}</li>
+            </ul>
+        </nav>
+    </div>
+    <center>
+    <br>
+    <div class="boxed">
+       <h3 style="color: white;">Choose your slots to attend classes</h3>
+    </div>
+    <br>
+    <h1 style="text-align:center; color: white;";>Start Booking!!</h1>
+    <br><br>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="card">
+          <img class="card-img" src="{%static 'images/maths1.jpg' %}" alt="Maths" />
+          <div class="card-content">
+           
+              <p class="card-text">
+                Book Math slots here!!
+              </p>
+                <button onclick="window.location.href='/mathematics'" class="card-btn">Book Slot<span>&rarr;</span></button>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item">
+        <div class="card">
+          <img
+            class="card-img" src="{%static 'images/physics1.jpg' %}" alt="Physics"/>
+          <div class="card-content">
+            
+              <p class="card-text">
+                Book Physics slots here!!
+              </p>
+              <button class="card-btn" onclick="window.location.href='/physics'">Book Slot<span>&rarr;</span></button>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item">
+        <div class="card">
+          <img class="card-img" src="{%static 'images/chemistry1.jpg' %}" alt="Chemistry" />
+          <div class="card-content">
+            
+            <p class="card-text">
+               Book Chemistry slots here!!
+            </p>
+            <button class="card-btn" onclick="window.location.href='/chemistry'">Book Slot<span>&rarr;</span></button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    </center>
+  </body>
+</html>
